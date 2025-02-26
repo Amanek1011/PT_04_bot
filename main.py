@@ -24,7 +24,14 @@ async def info(message: types.Message):
 @dp.message(Command('Sabina'))
 async def Sabina(message: types.Message):
     await  message.reply('Assistent')
-
+@dp.message()
+async def echo(message: types.Message):
+    if message.sticker:
+            await message.answer(f"{message.sticker.file_id}")
+    elif message.text == 'Aidin' or message.text == 'Aman':
+        await message.answer_sticker('CAACAgIAAxkBAAMdZ774lbXrQbMjHK-fjmlQjVzMnLsAAvokAAIzwXlIhTeUtDWQgyw2BA')
+        await message.answer_sticker('CAACAgIAAxkBAAMoZ776Q4xQJWH8_Qqmz16EtcdMyhgAAnNdAAJeimhIQ__VqJID5r42BA')
+        await message.answer_sticker('CAACAgIAAxkBAAMqZ776RMoaMVop9qbhtoBVj8HN9RoAAr9hAAI9RGhIULmp0_372no2BA')
 async  def main():
     print('Bot started...')
     await dp.start_polling(bot)
